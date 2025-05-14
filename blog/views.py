@@ -3,10 +3,10 @@ from django.http import HttpResponse
 
 # Create your views here.
 def main_page(request):
-    return HttpResponse("Main page")
+    return render(request, 'blog/index.html')
 
 def posts(request):
-    return HttpResponse("Posts")
+    return render(request, 'blog/posts.html')
 
 def show_post(request, slug):
     return HttpResponse("First post")
