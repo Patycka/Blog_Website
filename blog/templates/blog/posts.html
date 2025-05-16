@@ -1,10 +1,10 @@
 {% load static %}
 {% block css_files%}
-<link rel="stylesheet" href="{% static 'blog/includes/header.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static 'blog/includes/header.css' %}"> {% endcomment %}
 {% endblock %}
 
 {% block content %}
-{% include "blog/includes/header.html" %}
+{% comment %} {% include "blog/includes/header.html" %} {% endcomment %}
 <h1>Article1</h1>
 <h1>Article2</h1>
 {% endblock %}
