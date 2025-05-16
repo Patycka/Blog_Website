@@ -1,8 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+Patrycja Blog
+{% endblock %}
+
 {% load static %}
 {% block css_files%}
-<link rel="stylesheet" href="{% static 'blog/includes/header.css' %}">
+{% comment %} <link rel="stylesheet" href="{% static 'blog/includes/header.css' %}"> {% endcomment %}
+<link rel="stylesheet" href="{% static 'blog/index.css' %}">
 {% endblock %}
 
 {% block content %}
-{% include "blog/includes/header.html" %}
+{% comment %} {% include "blog/includes/header.html" %} {% endcomment %}
+<header id="main-navigation">
+    <nav>
+        <a href = "{% url 'blog_index' %}" class = "link_blog">Patrycja Blog</a>
+        <a href = "{% url 'blog_posts' %}" class = "link_all_posts">All Posts</a>
+    </nav>
+</header>
+<section id = "welcome">
+    <header id="main-navigation">
+        {% load static %}
+        <img src="{% static 'blog/image.jpg' %}" alt = "The author of this blog">
+        <h2>Patrycja Blog</h2>
+        <p>Hi, I am Patricia and I love to write about healthy lifestyle</p>
+    </header>
+</section>
+
+<section id = "latest-posts">
+    <h2>My latest Thoughts</h2>
+    <ul>
+        <li>
+            <article class="post">
+                <a href = "">
+                    <img src="" alt="Healthy sleep. How long should it last?">
+                    <div class="post__content">
+                        <h3>Healthy Sleep</h3>
+                        <p>Getting 7–9 hours of quality sleep each night is 
+                            essential for your body and mind.</p>
+                    </div>
+                </a>
+            </article>
+        </li>
+    </ul>
+</section>
+
+<section id="about">
+    <h2>What I Do</h2>
+    <p>I love programming and coopearating with others to create big things,
+        I also enjoy teaching others programming!</p>
+    <p>
+        My goal is to keep on growing as a developer and trainer also.
+    </p>
+</section>
 {% endblock %}
+

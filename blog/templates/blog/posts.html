@@ -1,3 +1,8 @@
+{% load static %}
+{% block css_files%}
+<link rel="stylesheet" href="{% static 'blog/includes/header.css' %}">
+{% endblock %}
+
 {% block content %}
 {% include "blog/includes/header.html" %}
 <h1>Article1</h1>
