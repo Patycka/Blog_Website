@@ -9,6 +9,12 @@
     {% block css_files %}{% endblock %}
 </head>
 <body>
+    <header id="main-navigation">
+        <h1><a href = "{% url 'blog_index' %}" class = "link_blog">Patrycja Blog</a></h1>
+        <nav>
+            <a href = "{% url 'blog_posts' %}" class = "link_all_posts">All Posts</a>
+        </nav>
+    </header>
     {% block content %}
     {% endblock %}
 </body>

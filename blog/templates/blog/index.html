@@ -6,20 +6,15 @@ Patrycja Blog
 
 {% load static %}
 {% block css_files%}
+<link rel="stylesheet" href="{% static 'blog/post.css' %}">
 <link rel="stylesheet" href="{% static 'blog/index.css' %}">
 {% endblock %}
 
 {% block content %}
-<header id="main-navigation">
-        <h1><a href = "{% url 'blog_index' %}" class = "link_blog">Patrycja Blog</a></h1>
-    <nav>
-        <a href = "{% url 'blog_posts' %}" class = "link_all_posts">All Posts</a>
-    </nav>
-</header>
 <section id = "welcome">
     <header>
         {% load static %}
-        <img src="{% static 'blog/image.jpg' %}" alt = "The author of this blog">
+        <img src="{% static 'blog/images/image.jpg' %}" alt = "The author of this blog">
         <h2>Patrycja Blog</h2>
     </header>
         <p>Hi, I am Patrycja and I love to write about healthy lifestyle</p>
@@ -27,20 +22,7 @@ Patrycja Blog
 
 <section id = "latest-posts">
     <h2>My latest Thoughts</h2>
-    <ul>
-        <li>
-            <article class="post">
-                <a href = "">
-                    <img src="" alt="Healthy sleep. How long should it last?">
-                    <div class="post__content">
-                        <h3>Healthy Sleep</h3>
-                        <p>Getting 7–9 hours of quality sleep each night is 
-                            essential for your body and mind.</p>
-                    </div>
-                </a>
-            </article>
-        </li>
-    </ul>
+    <ul>{% include "blog/includes/post.html" %}</ul>
 </section>
 
 <section id="about">
