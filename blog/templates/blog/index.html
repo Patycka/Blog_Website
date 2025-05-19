@@ -22,7 +22,9 @@ Patrycja Blog
 
 <section id = "latest-posts">
     <h2>My latest Thoughts</h2>
+    {% for post in posts %}
     <ul>{% include "blog/includes/post.html" %}</ul>
+    {% endfor %}
 </section>
 
 <section id="about">
