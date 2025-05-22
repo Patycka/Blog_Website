@@ -42,7 +42,7 @@ all_posts = [
         "image": "walking.jpg",
         "author": "Patrycja P",
         "date": date(2025, 5, 12),
-        "title": "The Truth About Sugar: How Much Is Too Much?",
+        "title": "Daily Steps: How Walking Can Transform Your Health",
         "excerpt": '''Walking is one of the simplest, most underrated forms of 
         exercise — yet its benefits are powerful.''',
         "content": """
@@ -84,4 +84,6 @@ def posts(request):
     return render(request, 'blog/all-posts.html', {"posts": sorted_posts})
 
 def show_post(request, slug):
-    return render(request, 'blog/post-detail.html')
+    identified_post = next(post for post in all_posts if post['slug'] == slug)
+    print(identified_post)
+    return render(request, 'blog/post-detail.html', {"post": identified_post})
