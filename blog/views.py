@@ -1,5 +1,6 @@
 from datetime import date
 from django.shortcuts import render
+from .models import Post
 
 all_posts = [
     {
@@ -72,18 +73,30 @@ def get_date(post):
     return post.get('date')
 
 
+from django.shortcuts import render
+
+def my_view(request):
+    current_user = request.user
+    context = {
+        'user': current_user,
+    }
+    return render(request, 'my_template.html', context)
+
 # Create your views here.
 def main_page(request):
-    sorted_posts = sorted(all_posts, key=get_date)
-    latest_posts = sorted_posts[-3:]
-    # latest_posts = 
+    latest_posts = Post.objects.all().order_by("-date")[:3]
     return render(request, 'blog/index.html', {"posts": latest_posts})
 
 def posts(request):
-    sorted_posts = sorted(all_posts, key=get_date)
-    return render(request, 'blog/all-posts.html', {"posts": sorted_posts})
+    posts = Post.objects.all().order_by("-date")
+    # sorted_posts = sorted(all_posts, key=get_date)
+    return render(request, 'blog/all-posts.html', {"posts": posts})
 
 def show_post(request, slug):
-    identified_post = next(post for post in all_posts if post['slug'] == slug)
+    identified_post = next(post for post in Post.objects.all() if post['slug'] == slug)
     print(identified_post)
     return render(request, 'blog/post-detail.html', {"post": identified_post})
+
+# def post_list(request):
+#     posts = Post.objects.all() # Fetch all records from DB
+#     return render(request, '')
